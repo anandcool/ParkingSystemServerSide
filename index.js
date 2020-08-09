@@ -64,6 +64,11 @@ app.post('/booking',(req,res)=>{
     .catch(err => res.status(400).json({error:"Something goes wrong"})) 
 })
 
+app.get('/alllocation',(req,res)=>{
+    Location.find()
+            .then(result => res.status(200).json({alllocation:result}))
+            .catch(err => res.status(500).json({error:'something goes wrong!'}))    
+})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`Server is running at ${PORT}`))
