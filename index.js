@@ -25,7 +25,7 @@ app.get('/addLocation',(req,res) =>{
     addLocation.save()
     .then(result => {
         if(result) 
-        res.send("Location Added Successfully")
+        res.status(200).json({msg:"Location Added Successfully"})
     })
     .catch(err => console.log(err))
 
