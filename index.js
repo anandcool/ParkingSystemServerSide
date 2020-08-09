@@ -1,0 +1,32 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const Location = require('.//model/location');
+
+mongoose.connect('mongodb://localhost/parkingsystem',{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+}).then(console.log("Mongodb Connected!!"))
+
+const app = express();
+
+app.use(express.json())
+
+app.get('/',(req,res) =>{
+    res.send("Test");
+})
+app.get('/addLocation',(req,res) =>{
+    // console.log("test");
+    res.send("hello");
+    // const addLocation = new Location();
+    // addLocation.latitude = req.body.latitude;
+    // addLocation.longtitude = req.body.longtitude;
+    // addLocation.category = req.body.category;
+    // addLocation.timing = req.body.timing;
+    // addLocation.save()
+    // .then(result => console.log(result))
+    // .catch(err => console.log(err))
+
+})
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT,()=>console.log(`Server is running at ${PORT}`))
