@@ -30,7 +30,7 @@ app.post('/addLocation',(req,res) =>{
 
 })
 
-app.get('/signup',(req,res)=>{
+app.post('/signup',(req,res)=>{
     res.send(req.body)
     // const user = new User();
     // user.fname = req.body.fname;
