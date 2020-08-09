@@ -16,7 +16,7 @@ app.get('/',(req,res) =>{
 })
 app.get('/addLocation',(req,res) =>{
     // console.log("test");
-    res.send("hello");
+    // res.send("hello");
     const addLocation = new Location();
     addLocation.latitude = req.body.latitude;
     addLocation.longtitude = req.body.longtitude;
