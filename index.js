@@ -31,7 +31,7 @@ app.post('/addLocation',(req,res) =>{
 })
 
 app.post('/signup',(req,res)=>{
-    res.send(req.body)
+    res.status(200).json({msg:req.body})
     // const user = new User();
     // user.fname = req.body.fname;
     // user.lname = req.body.lname;
