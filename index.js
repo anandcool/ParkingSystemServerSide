@@ -31,14 +31,15 @@ app.post('/addLocation',(req,res) =>{
 })
 
 app.post('/signup',(req,res)=>{
-    const user = new User();
-    user.fname = req.body.fname;
-    user.lname = req.body.lname;
-    user.email = req.body.email;
-    user.pno = req.body.pno;
-    user.save()
-        .then(result => res.status(200).json({msg:'User Added Succesfully'}))
-        .catch(err => res.status(400).json({error:"Something goes wrong"})) 
+    res.send(req.body)
+    // const user = new User();
+    // user.fname = req.body.fname;
+    // user.lname = req.body.lname;
+    // user.email = req.body.email;
+    // user.pno = req.body.pno;
+    // user.save()
+    //     .then(result => res.status(200).json({msg:'User Added Succesfully'}))
+    //     .catch(err => res.status(400).json({error:"Something goes wrong"})) 
 })
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`Server is running at ${PORT}`))
