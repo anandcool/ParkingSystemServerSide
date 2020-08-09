@@ -40,5 +40,11 @@ app.post('/signup',(req,res)=>{
         .then(result => res.status(200).json({msg:'User Added Succesfully'}))
         .catch(err => res.status(400).json({error:"Something goes wrong"})) 
 })
+
+app.post('/login',(req,res) =>{
+    res.send(req.body);
+})
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`Server is running at ${PORT}`))
