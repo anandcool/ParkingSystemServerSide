@@ -35,6 +35,7 @@ app.post('/signup',(req,res)=>{
     user.fname = req.body.fname;
     user.lname = req.body.lname;
     user.email = req.body.email;
+    user.password = req.body.pass;
     user.pno = req.body.pno;
     user.save()
         .then(result => res.status(200).json({msg:'User Added Succesfully'}))
