@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Location = require('./model/location');
 const User  = require('./model/user')
+const Booking = require('./model/booking')
 
 mongoose.connect('mongodb+srv://anand:1234567890@cluster0.04rox.mongodb.net/parkingsystem?retryWrites=true&w=majority',{
     useNewUrlParser:true,
@@ -48,6 +49,19 @@ app.post('/login',(req,res) =>{
         if(err) throw err;
         res.status(200).json({res:docs})
     })
+})
+
+app.post('/booking',(req,res)=>{
+    const booking = new Booking();
+    booking.companyName  = req.body.companyName;
+    booking.license = req.body.license;
+    booking.contact = req.body.contact;
+    booking.category = req.body.category;
+    booking.timing = req.body.timing;
+    booking.payment = req.body.payment;
+    booking.save()
+    .then(result => res.status(200).json({msg:'Booking Added Succesfully'}))
+    .catch(err => res.status(400).json({error:"Something goes wrong"})) 
 })
 
 
