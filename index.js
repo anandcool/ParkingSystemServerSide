@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Location = require('.//model/location');
 
-mongoose.connect('mongodb://localhost/parkingsystem',{
+mongoose.connect('mongodb+srv://anand:1234567890@cluster0.04rox.mongodb.net/<dbname>?retryWrites=true&w=majority',{
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(console.log("Mongodb Connected!!"))
@@ -17,14 +17,14 @@ app.get('/',(req,res) =>{
 app.get('/addLocation',(req,res) =>{
     // console.log("test");
     res.send("hello");
-    // const addLocation = new Location();
-    // addLocation.latitude = req.body.latitude;
-    // addLocation.longtitude = req.body.longtitude;
-    // addLocation.category = req.body.category;
-    // addLocation.timing = req.body.timing;
-    // addLocation.save()
-    // .then(result => console.log(result))
-    // .catch(err => console.log(err))
+    const addLocation = new Location();
+    addLocation.latitude = req.body.latitude;
+    addLocation.longtitude = req.body.longtitude;
+    addLocation.category = req.body.category;
+    addLocation.timing = req.body.timing;
+    addLocation.save()
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
 
 })
 
