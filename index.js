@@ -23,7 +23,10 @@ app.get('/addLocation',(req,res) =>{
     addLocation.category = req.body.category;
     addLocation.timing = req.body.timing;
     addLocation.save()
-    .then(result => console.log(result))
+    .then(result => {
+        if(result) 
+        res.send("Location Added Successfully")
+    })
     .catch(err => console.log(err))
 
 })
