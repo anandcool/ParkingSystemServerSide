@@ -16,18 +16,18 @@ app.get('/',(req,res) =>{
 })
 app.post('/addLocation',(req,res) =>{
     // console.log("test");
-    res.send(req.body);
-    // // const addLocation = new Location();
-    // // addLocation.latitude = req.body.latitude;
-    // // addLocation.longtitude = req.body.longtitude;
-    // // addLocation.category = req.body.category;
-    // // addLocation.timing = req.body.timing;
-    // // addLocation.save()
-    // // .then(result => {
-    // //     if(result) 
-    // //     res.status(200).json({msg:"Location Added Successfully"})
-    // // })
-    // // .catch(err => console.log(err))
+    // res.send(req.body);
+    const addLocation = new Location();
+    addLocation.latitude = req.body.latitude;
+    addLocation.longtitude = req.body.longtitude;
+    addLocation.category = req.body.category;
+    addLocation.timing = req.body.timing;
+    addLocation.save()
+    .then(result => {
+        if(result) 
+        res.status(200).json({msg:"Location Added Successfully"})
+    })
+    .catch(err => console.log(err))
 
 })
 
