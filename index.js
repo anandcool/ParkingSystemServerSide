@@ -14,7 +14,7 @@ app.use(express.json())
 app.get('/',(req,res) =>{
     res.send("Test");
 })
-app.get('/addLocation',(req,res) =>{
+app.post('/addLocation',(req,res) =>{
     // console.log("test");
     res.send("hello");
     // const addLocation = new Location();
