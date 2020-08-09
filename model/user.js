@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
+    pass:{
+        type:String,
+        required:true
+    },
     pno:{
         type:String,
         required:true,
