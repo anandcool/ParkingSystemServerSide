@@ -42,7 +42,11 @@ app.post('/signup',(req,res)=>{
 })
 
 app.post('/login',(req,res) =>{
-    res.send(req.body);
+    const {email,password} = req.body;
+    User.find({email:email},(err,docs) =>{
+        if(err) throw err;
+        res.status(200).json({res:docs})
+    })
 })
 
 
