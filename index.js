@@ -10,7 +10,7 @@ mongoose.connect('mongodb+srv://anand:1234567890@cluster0.04rox.mongodb.net/park
 const app = express();
 
 app.use(express.json())
-
+app.use(express.urlencoded({extended:true}))
 app.get('/',(req,res) =>{
     res.send("Test");
 })
