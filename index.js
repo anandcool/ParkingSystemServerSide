@@ -46,16 +46,16 @@ app.post('/signup',(req,res)=>{
 
 app.post('/login',(req,res) =>{
     const {email,password} = req.body;
-    res.send(req.body)
-    // User.find({email:email},(err,docs) =>{
-    //     if(err) throw err;
-    //     else{
-    //         res.send(password)            
-    //         // if(password === docs.pass){
-    //         //     res.status(200).json({msg:docs})
-    //         // }
-    //     }
-    // })
+    // res.send(req.body)
+    User.find({email:email},(err,docs) =>{
+        if(err) throw err;
+        else{
+            res.send(password)            
+            // if(password === docs.pass){
+            //     res.status(200).json({msg:docs})
+            // }
+        }
+    })
 })
 
 app.post('/booking',(req,res)=>{
