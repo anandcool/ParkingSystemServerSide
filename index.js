@@ -44,11 +44,11 @@ app.post('/signup',(req,res)=>{
 })
 
 app.post('/login',(req,res) =>{
-    const {email,password} = req.body;
+    const {email,pass} = req.body;
     User.find({email:email},(err,docs) =>{
         if(err) throw err;
         else{
-            if(password === docs.pass){
+            if(pass === docs.pass){
                 res.status(200).json({msg:docs})
             }
         }
