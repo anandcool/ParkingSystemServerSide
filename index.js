@@ -47,7 +47,11 @@ app.post('/login',(req,res) =>{
     const {email,password} = req.body;
     User.find({email:email},(err,docs) =>{
         if(err) throw err;
-        res.status(200).json({res:docs})
+        else{
+            if(password === docs.pass){
+                res.status(200).json({msg:docs})
+            }
+        }
     })
 })
 
