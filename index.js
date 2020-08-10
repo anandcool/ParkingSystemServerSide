@@ -88,7 +88,8 @@ app.get('/alllocation',(req,res)=>{
 app.get('/unbooked',(req,res)=>{
     Location.findOneAndUpdate({latitude:req.body.latitude},{$set:{space:'Vaccant'}},(err,doc) =>{
         if(err) throw err;
-        res.status(200).json({msg:'Unbooked Succesfully'})
+        res.json({msg:doc})
+        // res.status(200).json({msg:'Unbooked Succesfully'})
     })
 })
 
