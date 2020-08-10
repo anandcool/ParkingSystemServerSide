@@ -50,7 +50,7 @@ app.post('/login',(req,res) =>{
     User.find({email:email},(err,docs) =>{
         if(err) throw err;
         else{
-            res.send(password+"--"+docs.pass)            
+            res.send(password+"--"+docs)            
             // if(password == docs.pass){
             //     res.status(200).json({msg:docs})
             // }else{
