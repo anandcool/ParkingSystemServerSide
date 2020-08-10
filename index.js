@@ -4,10 +4,7 @@ const Location = require('./model/location');
 const User  = require('./model/user')
 const Booking = require('./model/booking')
 
-mongoose.connect('mongodb+srv://anand:1234567890@cluster0.04rox.mongodb.net/parkingsystem?retryWrites=true&w=majority',{
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-}).then(console.log("Mongodb Connected!!"))
+require('./model/connection');
 
 const app = express();
 
@@ -81,11 +78,19 @@ app.post('/booking',(req,res)=>{
     .catch(err => res.status(400).json({error:"Something goes wrong"})) 
 })
 
+
 app.get('/alllocation',(req,res)=>{
     Location.find()
             .then(result => res.status(200).json({alllocation:result}))
             .catch(err => res.status(500).json({error:'something goes wrong!'}))    
 })
+
+app.get('/unbooked',(req,res)=>{
+    Location.findOneAndUpdate({latitude:req.body.latitude},{$set:{space:'Vaccant'}},(err,doc) =>{
+        if(err) throw err;
+        res.status(200).json({msg:'Unbooked Succesfully'})
+})
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`Server is running at ${PORT}`))
