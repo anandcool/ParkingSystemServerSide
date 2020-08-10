@@ -50,10 +50,12 @@ app.post('/login',(req,res) =>{
     User.find({email:email},(err,docs) =>{
         if(err) throw err;
         else{
-            res.send(password)            
-            // if(password === docs.pass){
-            //     res.status(200).json({msg:docs})
-            // }
+            // res.send(password)            
+            if(password === docs.pass){
+                res.status(200).json({msg:docs})
+            }else{
+                res.status(400).json({msg:'Password is not correct'})
+            }
         }
     })
 })
