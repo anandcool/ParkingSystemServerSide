@@ -94,6 +94,11 @@ app.get('/unbooked',(req,res)=>{
     // })
 })
 
+app.get('/payment',(req,res) =>{
+    Booking.find()
+    .then(result => res.status(200).json({alllocation:result}))
+    .catch(err => res.status(500).json({error:'something goes wrong!'}))    
+})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`Server is running at ${PORT}`))
