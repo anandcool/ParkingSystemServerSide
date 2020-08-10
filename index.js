@@ -47,7 +47,7 @@ app.post('/signup',(req,res)=>{
 app.post('/login',(req,res) =>{
     const {email,password} = req.body;
     // res.send(req.body)
-    User.find({email:email},(err,docs) =>{
+    User.findOne({email:email},(err,docs) =>{
         if(err) throw err;
         else{
             res.send(password+"--"+docs)            
