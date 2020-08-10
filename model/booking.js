@@ -24,10 +24,14 @@ const bookingSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    // user:{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     ref:'user'
-    // }
+    latitude:{
+        type:String,
+        required:true
+    },
+    longtitude:{
+        type:String,
+        required:true
+    }
 })
 
 module.exports = mongoose.model('booking',bookingSchema);

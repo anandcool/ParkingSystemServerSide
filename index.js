@@ -68,6 +68,8 @@ app.post('/booking',(req,res)=>{
     booking.category = req.body.category;
     booking.timing = req.body.timing;
     booking.payment = req.body.payment;
+    booking.latitude = req.body.latitude;
+    booking.longtitude = req.body.longtitude;
     booking.save()
     .then(result => res.status(200).json({msg:'Booking Added Succesfully'}))
     .catch(err => res.status(400).json({error:"Something goes wrong"})) 
