@@ -71,7 +71,14 @@ app.post('/booking',(req,res)=>{
     booking.latitude = req.body.latitude;
     booking.longtitude = req.body.longtitude;
     booking.save()
-    .then(result => res.status(200).json({msg:'Booking Added Succesfully'}))
+    .then(result => {
+        const addLocation = new Location();
+        addLocation.findOneAndUpdate({latitude:req.body.latitude},{$set:{space:'Accquired'}},(err,doc) =>{
+            if(err) throw err;
+            res.status(200).json({msg:'Booking Added Succesfully'})
+        })
+
+    })
     .catch(err => res.status(400).json({error:"Something goes wrong"})) 
 })
 
