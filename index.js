@@ -55,7 +55,7 @@ app.post('/login',(req,res) =>{
     //         //     res.status(200).json({msg:docs})
     //         // }
     //     }
-    })
+    // })
 })
 
 app.post('/booking',(req,res)=>{
