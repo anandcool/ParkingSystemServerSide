@@ -26,11 +26,13 @@ const bookingSchema = new mongoose.Schema({
     },
     latitude:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     longtitude:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     }
 })
 
