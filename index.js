@@ -59,7 +59,7 @@ app.post('/login',(req,res) =>{
 
 app.post('/booking',(req,res)=>{
     const booking = new Booking();
-    res.send(req.body);
+    res.send(req.body.companyName+"--"+req.body.license+"--"+req.body.contact+"--"+req.body.category+"--"+req.body.timing+"--"+req.body.payment+req.body.latitude+"--"+req.body.longtitude);
     // booking.companyName  = req.body.companyName;
     // booking.license = req.body.license;
     // booking.contact = req.body.contact;
