@@ -43,18 +43,18 @@ app.post('/signup',(req,res)=>{
 
 app.post('/login',(req,res) =>{
     const {email,password} = req.body;
-    res.send(req.body)
-    // User.findOne({email:email},(err,docs) =>{
-    //     if(err) throw err;
-    //     else{
-    //         // res.send(password+"--"+docs.pass)            
-    //         if(password === docs.pass){
-    //             res.status(200).json({msg:docs})
-    //         }else{
-    //             res.status(400).json({msg:'Password is not correct'})
-    //         }
-    //     }
-    // })
+    // res.send(req.body)
+    User.findOne({email:email},(err,docs) =>{
+        if(err) throw err;
+        else{
+            // res.send(password+"--"+docs.pass)            
+            if(password === docs.pass){
+                res.status(200).json({msg:docs})
+            }else{
+                res.status(400).json({msg:'Password is not correct'})
+            }
+        }
+    })
 })
 
 app.post('/booking',(req,res)=>{
