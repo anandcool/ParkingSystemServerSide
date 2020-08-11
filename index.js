@@ -70,12 +70,11 @@ app.post('/booking',(req,res)=>{
     booking.longtitude = req.body.longtitude;
     booking.save()
     .then(result => {
-        res.send(result)
-        // Location.findOneAndUpdate({latitude:req.body.latitude},{$set:{space:'Accquired'}},(err,doc) =>{
-        //     if(err) throw err;
-        //     res.send(doc);
-            // res.status(200).json({msg:'Booking Added Succesfully'})
-        // })
+        Location.findOneAndUpdate({latitude:req.body.latitude},{$set:{space:'Accquired'}},(err,doc) =>{
+            if(err) throw err;
+            res.send(doc);
+            res.status(200).json({msg:'Booking Added Succesfully'})
+        })
 
     })
     .catch(err => res.status(400).json({error:"Something goes wrong"})) 
