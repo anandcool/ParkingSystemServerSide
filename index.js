@@ -59,24 +59,25 @@ app.post('/login',(req,res) =>{
 
 app.post('/booking',(req,res)=>{
     const booking = new Booking();
-    res.send(req.body.companyName+"--"+req.body.license+"--"+req.body.contact+"--"+req.body.category+"--"+req.body.timing+"--"+req.body.payment+req.body.latitude+"--"+req.body.longtitude);
-    // booking.companyName  = req.body.companyName;
-    // booking.license = req.body.license;
-    // booking.contact = req.body.contact;
-    // booking.category = req.body.category;
-    // booking.timing = req.body.timing;
-    // booking.payment = req.body.payment;
-    // booking.latitude = req.body.latitude;
-    // booking.longtitude = req.body.longtitude;
-    // booking.save()
-    // .then(result => {
-    //     Location.findOneAndUpdate({latitude:req.body.latitude},{$set:{space:'Accquired'}},(err,doc) =>{
-    //         if(err) throw err;
-    //         res.status(200).json({msg:'Booking Added Succesfully'})
-    //     })
+    // res.send(req.body.companyName+"--"+req.body.license+"--"+req.body.contact+"--"+req.body.category+"--"+req.body.timing+"--"+req.body.payment+req.body.latitude+"--"+req.body.longtitude);
+    booking.companyName  = req.body.companyName;
+    booking.license = req.body.license;
+    booking.contact = req.body.contact;
+    booking.category = req.body.category;
+    booking.timing = req.body.timing;
+    booking.payment = req.body.payment;
+    booking.latitude = req.body.latitude;
+    booking.longtitude = req.body.longtitude;
+    booking.save()
+    .then(result => {
+        Location.findOneAndUpdate({latitude:req.body.latitude},{$set:{space:'Accquired'}},(err,doc) =>{
+            if(err) throw err;
+            res.sendStatus(doc);
+            // res.status(200).json({msg:'Booking Added Succesfully'})
+        })
 
-    // })
-    // .catch(err => res.status(400).json({error:"Something goes wrong"})) 
+    })
+    .catch(err => res.status(400).json({error:"Something goes wrong"})) 
 })
 
 
