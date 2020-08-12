@@ -88,12 +88,13 @@ app.get('/alllocation',(req,res)=>{
 })
 
 app.get('/unbooked',(req,res)=>{
-    res.status(200).json({msg:req.body,type:"hello nitin"});
-    // Location.findOneAndUpdate({latitude:req.body.latitude},{$set:{space:'Vaccant'}},(err,doc) =>{
-    //     if(err) throw err;
-    //     // res.json({msg:doc})
-    //     // res.status(200).json({msg:'Unbooked Succesfully'})
-    // })
+    // res.status(200).json({msg:req.body,type:"hello nitin"});
+    let latitude = "28.4026";
+    Location.findOneAndUpdate({latitude:latitude},{$set:{space:'Vaccant'}},(err,doc) =>{
+        if(err) throw err;
+        res.json({msg:doc})
+        res.status(200).json({msg:'Unbooked Succesfully'})
+    })
 })
 
 app.get('/payment',(req,res) =>{
